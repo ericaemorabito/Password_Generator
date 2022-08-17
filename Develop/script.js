@@ -82,29 +82,17 @@ function generatePassword() {
 
   //Password starts empty
   password = ''
+  
+//Password's length increases until the password length reaches the length chosen
+for (password.length = 0; password.length = passwordLengthChoice; password.length++) {
+  if (!confirmLower && !confirmNum && !confirmSpecial && !confirmUpper) {
+    return;
+  } else if (confirmLower && !confirmNum && !confirmSpecial && !confirmUpper) {
+    password = //each index of password will be a new randomly chosen from lowercase...
 
-  //Password length is the choice the user made
-  password.length = passwordLengthChoice;
-  
-  var randomOption = Math.floor(Math.random() * [])
-password = 
-  //4 if statements to consider`
-   if (confirmLower) {
-    //include lowercase
-    //password = 
-  } 
-  
-  if (confirmUpper) {
-    //include uppercase
-  }
-  
-  if (confirmNum) {
-    //include numbers
-  }
-
-  if (confirmSpecial) {
-    //include speical
-  }
+    //16 possible types of character to enter into each index spot for password ...
+    //how to shorten this ...
+}
 }
 
 
