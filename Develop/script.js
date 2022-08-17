@@ -5,67 +5,107 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
+
   passwordText.value = password;
+
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
 
+//My Code
 
-//My code below
+//Variables for options
+var numbers = "0123456789";
+var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var special = "!@#$%^&*(){}[]=<>/,."
 
-/* GIVEN I need a new, secure password
-WHEN I click the button to generate a password
-THEN I am presented with a series of prompts for password criteria
-WHEN prompted for password criteria
-THEN I select which criteria to include in the password
-WHEN prompted for the length of the password
-THEN I choose a length of at least 8 characters and no more than 128 characters
-WHEN asked for character types to include in the password
-THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-WHEN I answer each prompt
-THEN my input should be validated and at least one character type should be selected
-WHEN all prompts are answered
-THEN a password is generated that matches the selected criteria
-WHEN the password is generated
-THEN the password is either displayed in an alert or written to the page
- */
-
-
-
-//Functions to create random selections
-function lower() {
-  return String.fromCharCode((Math.floor(Math.Random () * 26) + 97))
+//Create a way to randomly choose one letter/number/character
+var randomNumIndex = function () {
+  Math.floor(Math.random()) * numbers.length;
 }
 
-function upper() {
-  return String.fromCharCode((Math.floor(Math.Random() * 26) + 65));
+var randomLowerIndex = function() {
+  Math.floor(Math.random() * lowerCase.length)
 }
 
-function num() {
-  return String.fromCharCode((Math.floor(Math.Random() * 10) + 48));
+var randomUpperIndex = function() {
+  Math.floor(Math.random() * upperCase.length)
 }
 
-function special() {
-  var special = '!@#$%^&*(){}[]=<>/,.';
-  return special[Math.floor(Math.random() * special.length)];
+var randomSpecialIndex = function() {
+  Math.floor(Math.random() * special.length)
 }
 
-/* //When button clicked
-if (generateBtn.addEventListener("click", writePassword)) {
-  window.confirm("Generate a password");
+//Choose random letter/number/character
+var randomNum = numbers[randomNumIndex];
+var randomUpper = upperCase[randomUpperIndex];
+var randomLower = lowerCase[randomLowerIndex];
+var randomSpecial = special[randomSpecialIndex];
+
+
+function generatePassword() {
+
+  //Password length prompt
+  var passwordLengthChoice = function() {
+    window.prompt("Choose a password length between 8 and 128.")
+  }
+  passwordLengthChoice();
+  
+  //Confirm lowercase
+  var confirmLower = function() {
+    window.confirm("Include lower case letters?")
+  }
+  confirmLower();
+  
+  //Confirm Upper
+  var confirmUpper = function() {
+    window.confirm("Include upper case letters?")
+  }
+  confirmUpper();
+
+  //Confirm Numbers
+  var confirmNum = function() {
+    window.confirm("Include numbers?")
+  }
+  confirmNum();
+
+  //Confirm Special
+  var confirmSpecial = function () {
+    window.confirm("Include special characters?")
+  }
+  confirmSpecial();
+
+  //Now we have the prompt's answers.
+  //Need to create password based on the options.
+
+  //Password starts empty
+  password = ''
+
+  //Password length is the choice the user made
+  password.length = passwordLengthChoice;
+  
+  var randomOption = Math.floor(Math.random() * [])
+password = 
+  //4 if statements to consider`
+   if (confirmLower) {
+    //include lowercase
+    //password = 
+  } 
+  
+  if (confirmUpper) {
+    //include uppercase
+  }
+  
+  if (confirmNum) {
+    //include numbers
+  }
+
+  if (confirmSpecial) {
+    //include speical
+  }
 }
 
-//Prompting
-var lengthChoice = window.prompt("Choose a password length between 8 and 128.")
 
-if (lengthChoice >= 8 && lengthChoice <= 128) {
- 
-  window.confirm("Do you want to include lower case letters?")
-  window.confirm("Do you want to include upper case letters?")
-  window.confirm("Do you want to include numbers?")
-  window.confirm("Do you want to include special characters?")
- 
-} else {
-  lengthChoice; // prompts to choose password length again
-} */
+
