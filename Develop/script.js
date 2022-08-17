@@ -16,84 +16,82 @@ generateBtn.addEventListener("click", writePassword);
 //My Code
 
 //Variables for options
-var numbers = "0123456789";
-var lowerCase = "abcdefghijklmnopqrstuvwxyz";
-var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-var special = "!@#$%^&*(){}[]=<>/,."
+  var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+  var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']; 
+  var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  var special = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '{', '}', '[', ']', '=', '<', '>', '/', '.', '"'];
 
-//Create a way to randomly choose one letter/number/character
-var randomNumIndex = function () {
-  Math.floor(Math.random()) * numbers.length;
-}
-
-var randomLowerIndex = function() {
-  Math.floor(Math.random() * lowerCase.length)
-}
-
-var randomUpperIndex = function() {
-  Math.floor(Math.random() * upperCase.length)
-}
-
-var randomSpecialIndex = function() {
-  Math.floor(Math.random() * special.length)
-}
-
-//Choose random letter/number/character
-var randomNum = numbers[randomNumIndex];
-var randomUpper = upperCase[randomUpperIndex];
-var randomLower = lowerCase[randomLowerIndex];
-var randomSpecial = special[randomSpecialIndex];
-
-
+//Function to begin prompts and generate the password on click
 function generatePassword() {
 
+  //Create a way to randomly choose one letter/number/character
+  var randomNumIndex = function () {
+    return Math.floor((Math.random()) * numbers.length);
+  }
+
+  var randomLowerIndex = function () {
+    return Math.floor((Math.random() * lowerCase.length))
+  }
+
+  var randomUpperIndex = function () {
+    return Math.floor(Math.random() * upperCase.length)
+  }
+
+  var randomSpecialIndex = function () {
+    return Math.floor(Math.random() * special.length)
+  }
+  
+  //Choose random letter/number/character
+  var randomNum = numbers[randomNumIndex()];
+  var randomUpper = upperCase[randomUpperIndex()];
+  var randomLower = lowerCase[randomLowerIndex()];
+  var randomSpecial = special[randomSpecialIndex()];
+
   //Password length prompt
-  var passwordLengthChoice = function() {
-    window.prompt("Choose a password length between 8 and 128.")
-  }
-  passwordLengthChoice();
+  var passwordLengthChoice = window.prompt("Choose a password length between 8 and 128.")
+
+  //TO DO: Create if statements and push to global arrays 
   
+  //2. create if statement for each - if true - push array to megaArray
+  //3. console.log to check each is pushed to array depending on choices
+
+  //mega empty array
+  var megaArray = []
+
   //Confirm lowercase
-  var confirmLower = function() {
-    window.confirm("Include lower case letters?")
+  var confirmLower = confirm("Include lower case letters?")
+  if (confirmLower) {
+      megaArray.push(lowerCase)
   }
-  confirmLower();
-  
+  console.log(megaArray)
+
   //Confirm Upper
-  var confirmUpper = function() {
-    window.confirm("Include upper case letters?")
+  var confirmUpper = confirm("Include upper case letters?")
+  if (confirmUpper) {
+    megaArray.push(upperCase)
   }
-  confirmUpper();
+console.log(megaArray)
 
   //Confirm Numbers
-  var confirmNum = function() {
-    window.confirm("Include numbers?")
+  var confirmNum = confirm("Include numbers?")
+  if (confirmNum) {
+    megaArray.push(numbers)
   }
-  confirmNum();
-
+  console.log(megaArray)
+  
   //Confirm Special
-  var confirmSpecial = function () {
-    window.confirm("Include special characters?")
+  var confirmSpecial = confirm("Include special characters?")
+  if (confirmSpecial) {
+    megaArray.push[special]
   }
-  confirmSpecial();
-
-  //Now we have the prompt's answers.
-  //Need to create password based on the options.
+  console.log(megaArray)
 
   //Password starts empty
-  password = ''
-  
-//Password's length increases until the password length reaches the length chosen
-for (password.length = 0; password.length = passwordLengthChoice; password.length++) {
-  if (!confirmLower && !confirmNum && !confirmSpecial && !confirmUpper) {
-    return;
-  } else if (confirmLower && !confirmNum && !confirmSpecial && !confirmUpper) {
-    password = //each index of password will be a new randomly chosen from lowercase...
+  password = [] //string or array depending, join with .join
 
-    //16 possible types of character to enter into each index spot for password ...
-    //how to shorten this ...
-}
-}
+  //Password's length increases until the password length reaches the length chosen
+  for (i= 0; i < passwordLengthChoice; i++) //standard for loop {
+    megaArray //take a random index and push into password
+    .push //into password
 
-
-
+  }
