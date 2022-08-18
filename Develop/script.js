@@ -16,82 +16,77 @@ generateBtn.addEventListener("click", writePassword);
 //My Code
 
 //Variables for options
-  var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
-  var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']; 
-  var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
-  var special = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '{', '}', '[', ']', '=', '<', '>', '/', '.', '"'];
+var numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z'];
+var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+var special = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '{', '}', '[', ']', '=', '<', '>', '/', '.', '"'];
 
 //Function to begin prompts and generate the password on click
 function generatePassword() {
 
-  //Create a way to randomly choose one letter/number/character
-  var randomNumIndex = function () {
-    return Math.floor((Math.random()) * numbers.length);
-  }
-
-  var randomLowerIndex = function () {
-    return Math.floor((Math.random() * lowerCase.length))
-  }
-
-  var randomUpperIndex = function () {
-    return Math.floor(Math.random() * upperCase.length)
-  }
-
-  var randomSpecialIndex = function () {
-    return Math.floor(Math.random() * special.length)
-  }
-  
-  //Choose random letter/number/character
-  var randomNum = numbers[randomNumIndex()];
-  var randomUpper = upperCase[randomUpperIndex()];
-  var randomLower = lowerCase[randomLowerIndex()];
-  var randomSpecial = special[randomSpecialIndex()];
-
   //Password length prompt
   var passwordLengthChoice = window.prompt("Choose a password length between 8 and 128.")
 
-  //TO DO: Create if statements and push to global arrays 
-  
-  //2. create if statement for each - if true - push array to megaArray
-  //3. console.log to check each is pushed to array depending on choices
+  //Making sure user picks between 8 and 128
+  if (passwordLengthChoice < 8 || passwordLengthChoice > 128) {
+    return;
+  } else {
+    //Mega Array starts empty
+    var megaArray = []
 
-  //mega empty array
-  var megaArray = []
+    //Confirm lowercase
+    var confirmLower = confirm("Include lower case letters?")
+    if (confirmLower) {
+      console.log(lowerCase, megaArray)
+      megaArray = megaArray.concat(lowerCase)
+    }
+    console.log(megaArray)
 
-  //Confirm lowercase
-  var confirmLower = confirm("Include lower case letters?")
-  if (confirmLower) {
-      megaArray.push(lowerCase)
+    //Confirm Upper
+    var confirmUpper = confirm("Include upper case letters?")
+    if (confirmUpper) {
+      megaArray = megaArray.concat(upperCase)
+    }
+    console.log(megaArray)
+
+    //Confirm Numbers
+    var confirmNum = confirm("Include numbers?")
+    if (confirmNum) {
+      megaArray = megaArray.concat(numbers)
+    }
+    console.log(megaArray)
+
+    //Confirm Special
+    var confirmSpecial = confirm("Include special characters?")
+    if (confirmSpecial) {
+      megaArray = megaArray.concat(special)
+    }
+    console.log(megaArray)
+
+    //Password starts empty
+    password = []
+
+    //TODO: turn array into string 
+    // ? use .toString????? but then there are commas??
+    //I have an array based on the options
+    //turn array into a string
+    //display the string on the page
+    //change the html of a page
+
+    //make sure the user choses between 8 and 128
+
+    //Password's length increases until the password length reaches the length chosen
+    for (i = 0; i < passwordLengthChoice; i++) {
+      var randomMegaArraySelection = megaArray[Math.floor(Math.random() * megaArray.length)] //pick random point in the megaArray
+      password.push(randomMegaArraySelection)
+    }   //pushes selection to password 
+
+    console.log(password)
+    //have array
+    //need to make it a string
+    //display it on the page - how to chnage text in html 
+
   }
-  console.log(megaArray)
 
-  //Confirm Upper
-  var confirmUpper = confirm("Include upper case letters?")
-  if (confirmUpper) {
-    megaArray.push(upperCase)
-  }
-console.log(megaArray)
 
-  //Confirm Numbers
-  var confirmNum = confirm("Include numbers?")
-  if (confirmNum) {
-    megaArray.push(numbers)
-  }
-  console.log(megaArray)
-  
-  //Confirm Special
-  var confirmSpecial = confirm("Include special characters?")
-  if (confirmSpecial) {
-    megaArray.push[special]
-  }
-  console.log(megaArray)
-
-  //Password starts empty
-  password = [] //string or array depending, join with .join
-
-  //Password's length increases until the password length reaches the length chosen
-  for (i= 0; i < passwordLengthChoice; i++) //standard for loop {
-    megaArray //take a random index and push into password
-    .push //into password
-
-  }
+}
