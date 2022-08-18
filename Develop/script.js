@@ -75,7 +75,7 @@ function generatePassword() {
     randomPassword = randomPassword.join('')
   
     return randomPassword;
-  }
+  } 
 
 
 }
