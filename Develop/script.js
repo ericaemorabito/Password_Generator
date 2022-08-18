@@ -21,7 +21,7 @@ var lowerCase = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm'
 var upperCase = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
 var special = ['!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '{', '}', '[', ']', '=', '<', '>', '/', '.', '"'];
 
-//Function to begin prompts and generate the password on click
+//Function to begin prompts and generate the password for click event
 function generatePassword() {
 
   //Password length prompt
@@ -37,7 +37,6 @@ function generatePassword() {
     //Confirm lowercase
     var confirmLower = confirm("Include lower case letters?")
     if (confirmLower) {
-      console.log(lowerCase, megaArray)
       megaArray = megaArray.concat(lowerCase)
     }
     console.log(megaArray)
@@ -64,28 +63,18 @@ function generatePassword() {
     console.log(megaArray)
 
     //Password starts empty
-    password = []
-
-    //TODO: turn array into string 
-    // ? use .toString????? but then there are commas??
-    //I have an array based on the options
-    //turn array into a string
-    //display the string on the page
-    //change the html of a page
-
-    //make sure the user choses between 8 and 128
+    var randomPassword = []
 
     //Password's length increases until the password length reaches the length chosen
     for (i = 0; i < passwordLengthChoice; i++) {
-      var randomMegaArraySelection = megaArray[Math.floor(Math.random() * megaArray.length)] //pick random point in the megaArray
-      password.push(randomMegaArraySelection)
-    }   //pushes selection to password 
-
-    console.log(password)
-    //have array
-    //need to make it a string
-    //display it on the page - how to chnage text in html 
-
+      var randomMegaArraySelection = megaArray[Math.floor(Math.random() * megaArray.length)] //pick random points in the megaArray
+      randomPassword.push(randomMegaArraySelection) //pushes our random megaArray selections to the password until reaches the length
+    }   
+   
+    console.log(randomPassword)
+    randomPassword = randomPassword.join('')
+  
+    return randomPassword;
   }
 
 
